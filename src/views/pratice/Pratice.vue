@@ -63,7 +63,7 @@
 <script>
 	import NavBar from 'components/common/navbar/NavBar'
 	import PraticeSwiper from 'views/pratice/childComps/praticeSwiper'
-	import SelectGrade from 'views/pratice/childComps/selectGrade'
+	import SelectGrade from 'components/content/selectGrade'
 
 	export default {
 		name: 'pratice',

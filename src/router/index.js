@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 const Pratice = ()=> import('../views/pratice/Pratice')
 const Profile = ()=> import('../views/profile/Profile')
+const User = () => import('../views/user/User')
 
 Vue.use(Router)
 
@@ -18,6 +19,10 @@ const routes = [
 	{
 		path:'/pratice',
 		component: Pratice
+	},
+	{
+		path:'/user',
+		component: User
 	}
 ]
 

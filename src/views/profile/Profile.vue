@@ -11,28 +11,32 @@
 			<div class="options">
 				<el-row class='el-row1'>
 					<el-col :span="12">
-						<img src= "~assets/img/profile/error_book.svg" class="error_book"/>
+						<img src="~assets/img/profile/error_book.svg" class="error_book" />
 					</el-col>
-					<el-col :span="12" >
-						<el-button type="warning" round plain>错题本</el-button>					
+					<el-col :span="12">
+						<el-button type="warning" round plain>错题本</el-button>
 					</el-col>
 				</el-row>
-				
+
 				<el-row class='el-row2'>
-					<el-col :span="12" >
-						<img src= "~assets/img/profile/history.svg" class="history"/>
+					<el-col :span="12">
+						<img src="~assets/img/profile/history.svg" class="history" />
 					</el-col>
 					<el-col :span="12" style="text-align: left">
-						<el-button type="warning" round plain>练习历史</el-button>			
-					</el-col></el-row>
-					
+						<el-button type="warning" round plain>练习历史</el-button>
+					</el-col>
+				</el-row>
+
 				<el-row class='el-row3'>
-					<el-col :span="12" >
-						<img src= "~assets/img/profile/user.svg" class="user"/>
+					<el-col :span="12">
+						<img src="~assets/img/profile/user.svg" class="user" />
 					</el-col>
 					<el-col :span="12" style="text-align: left">
-						<el-button type="warning" round plain>用户设置</el-button>	
-					</el-col></el-row>
+						<router-link to="user">
+							<el-button type="warning" round plain>用户设置</el-button>
+						</router-link>
+					</el-col>
+				</el-row>
 			</div>
 
 		</el-main>
@@ -68,26 +72,28 @@
 		position: relative;
 		text-align: center;
 	}
-	
+
 	#profile .el-row1 {
 		top: 15%;
 		left: 30%;
 		position: absolute;
 	}
-	
+
 	#profile .el-row2 {
 		top: 35%;
 		left: 27%;
 		position: absolute;
 	}
-	
+
 	#profile .el-row3 {
 		top: 55%;
 		left: 27%;
 		position: absolute;
 	}
-	
-	#profile .error_book, .history, .user{
+
+	#profile .error_book,
+	.history,
+	.user {
 		height: 40px;
 		max-width: 100%;
 	}
