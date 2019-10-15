@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     handleChange (value) {
-      console.log(value)
+      this.$data.value = value
     }
   }
   // created () {

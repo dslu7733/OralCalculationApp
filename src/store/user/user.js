@@ -16,8 +16,7 @@ const user = {
       state.name = payload.name
       state.grade = payload.grade.slice()
       let newUser = payload
-      console.log(newUser)
-      console.log(state)
+
       Vue.axios.get('/api/user/edit', {params : newUser})
         .then(res=>{
           console.log(res)
