@@ -1,9 +1,10 @@
 const errorBook = {
   state: {
-    index : 0,
-    ans   : '',
-    prob  : '',
-    input : ''
+      // index : 0,
+      // ans   : '',
+      // prob  : '',
+      // input : ''
+      errorRed : []
   },
   mutations: {
 

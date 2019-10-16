@@ -6,6 +6,7 @@ const Profile = () => import('../views/profile/Profile')
 const User = () => import('../views/user/User')
 const PraSelect = () => import('../views/praticeSelect/praSelect.vue')
 const Question = () => import('../views/question/question')
+const ErrorRecord = () => import('../views/errorRecord/errorRed.vue')
 
 Vue.use(Router)
 
@@ -32,6 +33,10 @@ const routes = [{
   {
     path: '/question',
     component: Question
+  },
+  {
+    path: '/errorRecord',
+    component: ErrorRecord
   }
 ]
 

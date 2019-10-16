@@ -97,8 +97,19 @@ export default {
       clearInterval(this.$data.timer)
       this.$store.state.praStart.start = 1
       this.$data.timer = -1
-
       this.showAns = true
+
+      for (var i = 0; i < this.$data.proNum; i++) {
+        if (this.$data.questions[i].right == 0) {
+          let err = {
+            ans: this.$data.questions[i].ans,
+            prob: this.$data.questions[i].prob,
+            input: this.$data.questions[i].input
+          }
+          this.$store.state.errorBook.errorRed.push(err)
+          //console.log(err)
+        }
+      }
     },
     tableRowClassName ({ row, rowIndex }) {
       //console.log('row' + row)
