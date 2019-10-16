@@ -58,6 +58,7 @@
 
           <div class='el-row3'>
             <el-button type="success"
+                       @click.native="start"
                        round>开始练习</el-button>
           </div>
 
@@ -73,6 +74,7 @@
 import NavBar from 'components/common/navbar/NavBar'
 import PraticeSwiper from 'views/pratice/childComps/praticeSwiper'
 import SelectGrade from 'components/content/selectGrade'
+import store from '../../store/index'    //直接引入
 
 export default {
   name: 'pratice',
@@ -80,8 +82,8 @@ export default {
     return {
       problemNumOpt: [10, 20, 30, 60, 100],
       problemNum: 30,
-      grade: [],
-      praRange: [],
+      grade: [],     //当前年级
+      praRange: [],  //当前可选题型
 
       banners: [{
         id: 1,
@@ -93,6 +95,13 @@ export default {
       }
       ]
     }
+  },
+  beforeRouteLeave: (to, from, next) => {
+    //console.log(to.path)
+    if (to.path === '/question') {
+      store.commit('Close')
+    }
+    next()
   },
   components: {
     NavBar,
@@ -115,6 +124,15 @@ export default {
           this.$router.push({ path: '/praSelect', query: { parRange: this.$data.praRange } })
         }
       }, 300);
+    },
+
+    start () {
+
+      if (this.$store.state.praRange.pratice == '') {
+        this.$message('请先选择题目。')
+      } else {
+        this.$router.push({ path: '/question', query: { pracType: this.$store.state.praRange.pratice, proNum: this.$data.problemNum } })
+      }
     }
   },
   computed: {
@@ -127,7 +145,7 @@ export default {
 
     if (this.$route.query.pratice != null) {
       //console.log(this.$route.query.pratice)
-      this.$store.state.praRange.pratice = this.$route.query.pratice
+      this.$store.state.praRange.pratice = this.$route.query.pratice  //取得选择的题型
     }
     //console.log('created ' + this.$data.grade )
   }

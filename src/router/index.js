@@ -5,6 +5,7 @@ const Pratice = () => import('../views/pratice/Pratice')
 const Profile = () => import('../views/profile/Profile')
 const User = () => import('../views/user/User')
 const PraSelect = () => import('../views/praticeSelect/praSelect.vue')
+const Question = () => import('../views/question/question')
 
 Vue.use(Router)
 
@@ -25,8 +26,12 @@ const routes = [{
     component: User
   },
   {
-		path: '/praSelect',
-		component: PraSelect
+    path: '/praSelect',
+    component: PraSelect
+  },
+  {
+    path: '/question',
+    component: Question
   }
 ]
 

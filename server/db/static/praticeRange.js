@@ -41,9 +41,10 @@ var gradeOneSecond = new PraRange({
 }).save((err, res) => {
   if (err) {
     console.log('update praticeRange err: ' + err)
-  } else {
-    console.log('update pratice range: ' + res)
-  }
+  } 
+  // else {
+  //   console.log('update pratice range: ' + res)
+  // }
 })
 
 // gradeOneFirst.save((err,res)=>{
