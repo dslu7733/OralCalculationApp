@@ -9,8 +9,11 @@ module.exports = function(number) {
     let num2 = Math.floor(Math.random() * 10 + 1);
     let answer = num1 + num2;
     let content = String(num1) + ' + ' + String(num2) + ' = '
-    forluma.ans = answer;
+    forluma.ans = String(answer);
     forluma.prob = content
+    forluma.index   = i      
+    forluma.right   = 0
+    forluma.input   = ''
     arr[i] = forluma;
     //console.log(arr[i].prob)
   }

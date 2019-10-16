@@ -16,8 +16,11 @@ module.exports = function (number) {
     }
 
     var content = String(num1) + ' - ' + String(num2) + ' = '
-    forluma.ans = answer;
+    forluma.ans = String(answer);
     forluma.prob = content
+    forluma.index   = i      
+    forluma.right   = 0
+    forluma.input   = ''
     arr.push(forluma);
   }
   return arr;
