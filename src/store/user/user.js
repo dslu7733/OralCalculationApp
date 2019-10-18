@@ -8,8 +8,8 @@ Vue.use(VueAxios, Axios)
 
 const user = {
   state: {
-    name: 'lds',
-    grade: ['gradeTwo', 'secondSemester']
+    name: '',
+    grade: []
   },
   mutations: {
     updateUser(state, payload) {
@@ -17,10 +17,12 @@ const user = {
       state.grade = payload.grade.slice()
       let newUser = payload
 
-      Vue.axios.get('/api/user/edit', {params : newUser})
-        .then(res=>{
+      Vue.axios.get('/api/user/edit', {
+          params: newUser
+        })
+        .then(res => {
           console.log(res)
-        }, err=>{
+        }, err => {
           console.log(err)
         })
     }

@@ -30,12 +30,10 @@
       </el-row>
 
       <el-row class='el-row3'>
-        <router-link to="profile">
-          <el-button type="success"
-                     plain
-                     round
-                     @click="addUser">确定</el-button>
-        </router-link>
+        <el-button type="success"
+                   plain
+                   round
+                   @click="addUser">确定</el-button>
       </el-row>
     </el-main>
 
@@ -60,13 +58,24 @@ export default {
   },
   methods: {
     addUser () {
-      if (this.$data.name && this.$refs.selectgrade.value) {
+      this.$data.name = this.$data.name.replace(/^\s+|\s+$/g, "")
+      if (this.$data.name != '' && this.$refs.selectgrade.value.length != 0) {
+        //console.log(this.$refs.selectgrade.value.length)
         let payload = {
           name: this.$data.name,
           grade: this.$refs.selectgrade.value
         }
         //console.log(this.$data.name + this.$refs.selectgrade.value)
         this.$store.commit('updateUser', payload)
+        this.$router.push('/pratice')
+      }
+      else {
+        const h = this.$createElement;
+
+        this.$notify({
+          title: 'Error',
+          message: h('i', { style: 'color: teal' }, '请填写昵称和选择年级')
+        });
       }
     }
   },

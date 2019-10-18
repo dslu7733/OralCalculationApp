@@ -34,7 +34,7 @@
                  placeholder="">
         </el-table-column>
         <el-table-column prop="prob"
-                         width="130%">
+                         width="150%">
         </el-table-column>
       </div>
 
@@ -43,11 +43,12 @@
                          width="100%">
         </el-table-column>
         <el-table-column prop="prob"
-                         width="100%">
+                         width="150%">
         </el-table-column>
         <el-table-column prop="input"
                          width="100%">
         </el-table-column>
+
       </div>
 
     </el-table>
@@ -104,8 +105,11 @@ export default {
           let err = {
             ans: this.$data.questions[i].ans,
             prob: this.$data.questions[i].prob,
-            input: this.$data.questions[i].input
+            input: this.$data.questions[i].input,
+            index: this.$store.state.errorBook.num
           }
+
+          this.$store.state.errorBook.num++;
           this.$store.state.errorBook.errorRed.push(err)
           //console.log(err)
         }
@@ -131,17 +135,13 @@ export default {
       proNum: this.$route.query.proNum
     }
     this.$data.proNum = postData.proNum
-    console.log(this.$data.proNum)
+    //console.log(this.$data.proNum)
 
     Vue.axios.post('/api/prodPratice', postData)
       .then(res => {
         if (res.data) {
-          //console.log(typeof res.data)
-          //console.log(res.data)
           this.$data.questions = res.data
-          //console.log(this.$data.questions)
         }
-        //console.log(res)
       }, err => {
         console.log(err)
       })

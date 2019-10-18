@@ -4,7 +4,8 @@ const errorBook = {
       // ans   : '',
       // prob  : '',
       // input : ''
-      errorRed : []
+      errorRed : [],   //这里使用数组不太好
+      num: 0
   },
   mutations: {
 
