@@ -87,11 +87,15 @@ export default {
 
       banners: [{
         id: 1,
-        imge: 'http://img5.imgtn.bdimg.com/it/u=1539145928,3460546129&fm=11&gp=0.jpg'
+        imge: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2115757459,393397954&fm=26&gp=0.jpg'
       },
       {
         id: 2,
-        imge: 'http://img5.imgtn.bdimg.com/it/u=1539145928,3460546129&fm=11&gp=0.jpg'
+        imge: 'https://i04piccdn.sogoucdn.com/c65afff59d213f75'
+      },
+      {
+        id: 3,
+        imge: 'https://i03piccdn.sogoucdn.com/c1901134c10fe2a9'
       }
       ]
     }
@@ -123,7 +127,7 @@ export default {
           this.$data.praRange = this.$store.state.praRange.praRange
           this.$router.push({ path: '/praSelect', query: { parRange: this.$data.praRange } })
         }
-      }, 300);
+      }, 500);
     },
 
     start () {

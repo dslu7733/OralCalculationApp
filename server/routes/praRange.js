@@ -16,12 +16,12 @@ router.get('/pratice/range', function (req, res) {
           res.send(data.praRange)
         }
       } else {
-        console.log('not find')
+        console.log('not find the grade ' + req.query.grade)
         res.end('')
       }
     })
   } else {
-    console.log('not find')
+    console.log('req.query is empty. not find')
     res.end('')
   }
 

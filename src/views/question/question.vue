@@ -14,7 +14,7 @@
                  class="comfirm">提交</el-button>
       <div v-show="showAns"
            class="comfirm grade">
-        30 / {{rightNum}}
+        {{rightNum}} / {{proNum}}
       </div>
     </div>
 
@@ -31,7 +31,7 @@
                  v-model="inputAns"
                  class="inputAns"
                  @blur='recordAns'
-                 placeholder="请输入答案">
+                 placeholder="">
         </el-table-column>
         <el-table-column prop="prob"
                          width="130%">
@@ -131,6 +131,7 @@ export default {
       proNum: this.$route.query.proNum
     }
     this.$data.proNum = postData.proNum
+    console.log(this.$data.proNum)
 
     Vue.axios.post('/api/prodPratice', postData)
       .then(res => {
