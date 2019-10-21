@@ -151,7 +151,9 @@ export default {
       //console.log(this.$route.query.pratice)
       this.$store.state.praRange.pratice = this.$route.query.pratice  //取得选择的题型
     }
-    //console.log('created ' + this.$data.grade )
+
+    if (this.$store.state.user.errorRecord === "")
+      this.$store.state.user.errorRecord = []
   }
 }
 </script>

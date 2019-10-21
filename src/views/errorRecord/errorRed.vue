@@ -55,27 +55,29 @@ export default {
       this.$router.push('/profile')
     },
     handleClick (delProb) {
-      store.state.errorBook.num--
-      var last_index = store.state.errorBook.num
+      store.state.user.num--
+      var last_index = store.state.user.num
 
-      var index = store.state.errorBook.errorRed[delProb.index].index
-      store.state.errorBook.errorRed[delProb.index] =
-        store.state.errorBook.errorRed[last_index]
-      store.state.errorBook.errorRed[delProb.index].index = index
+      var index = store.state.user.errorRecord[delProb.index].index
+      store.state.user.errorRecord[delProb.index] =
+        store.state.user.errorRecord[last_index]
 
-      store.state.errorBook.errorRed.pop()
+      //console.log(index)
+      store.state.user.errorRecord[index].index = index
+      store.state.user.errorRecord.pop()
       //this.$router.push({ path: '/errorRecord' })
+
     }
 
   },
   computed: {
     proNum () {
-      return store.state.errorBook.num
+      return store.state.user.num
     }
   },
   created () {
-    console.log(store.state.errorBook.errorRed)
-    this.$data.questions = store.state.errorBook.errorRed
+    console.log(store.state.user.errorRecord)
+    this.$data.questions = store.state.user.errorRecord
   },
   beforeRouteLeave: (to, from, next) => {
     //console.log(to.path)

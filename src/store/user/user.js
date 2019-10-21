@@ -9,19 +9,26 @@ Vue.use(VueAxios, Axios)
 const user = {
   state: {
     name: '',
-    grade: []
+    grade: [],
+    errorRecord: [],
+    num: 0 //错题数目
   },
   mutations: {
     updateUser(state, payload) {
       state.name = payload.name
-      state.grade = payload.grade.slice()
-      let newUser = payload
+      if (payload.grade !== [])
+        state.grade = payload.grade.slice()
+      state.errorRecord = payload.errorRecord
 
-      Vue.axios.get('/api/user/edit', {
-          params: newUser
-        })
-        .then(res => {
-          console.log(res)
+      Vue.axios.post('/api/user/edit', payload)
+        .then(response => {
+
+          if (response.data != '') {
+            state.errorRecord = response.data
+            state.num = state.errorRecord.length
+          }
+
+          //console.log(state.errorRecord)
         }, err => {
           console.log(err)
         })

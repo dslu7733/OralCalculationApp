@@ -43,6 +43,11 @@
 <script>
 import NavBar from 'components/common/navbar/NavBar'
 import SelectGrade from 'components/content/selectGrade'
+import Vue from 'vue'
+import VueAxios from 'vue-axios'
+import Axios from 'axios'
+
+Vue.use(VueAxios, Axios)
 
 export default {
   name: 'user',
@@ -63,9 +68,14 @@ export default {
         //console.log(this.$refs.selectgrade.value.length)
         let payload = {
           name: this.$data.name,
-          grade: this.$refs.selectgrade.value
+          grade: this.$refs.selectgrade.value,
         }
-        //console.log(this.$data.name + this.$refs.selectgrade.value)
+        if (this.$store.state.user.errorRecord == "")
+          payload.errorRecord = []
+        else {
+          payload.errorRecord = this.$store.state.user.errorRecord
+        }
+
         this.$store.commit('updateUser', payload)
         this.$router.push('/pratice')
       }

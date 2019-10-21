@@ -1,5 +1,10 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/oralCal', {useFindAndModify:false,useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true})
+mongoose.connect('mongodb://localhost:27017/oralCal', {
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true
+})
 
 let userSchema = new mongoose.Schema({
   name: {
@@ -18,7 +23,8 @@ let userSchema = new mongoose.Schema({
   },
 
   errorRecord: {
-    default: ''
+    type: Array,
+    default: []
   }
 })
 

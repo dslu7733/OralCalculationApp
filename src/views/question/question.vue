@@ -106,13 +106,29 @@ export default {
             ans: this.$data.questions[i].ans,
             prob: this.$data.questions[i].prob,
             input: this.$data.questions[i].input,
-            index: this.$store.state.errorBook.num
+            index: this.$store.state.user.num
           }
 
-          this.$store.state.errorBook.num++;
-          this.$store.state.errorBook.errorRed.push(err)
+          this.$store.state.user.num++;
+          this.$store.state.user.errorRecord.push(err)
           //console.log(err)
         }
+      }
+
+      if (this.$store.state.user.name !== "") {
+        let payload = {
+          name: this.$store.state.user.name,
+          grade: this.$store.state.user.grade
+        }
+        if (this.$store.state.user.grade == "")
+          payload.grade = []
+        if (this.$store.state.user.errorRecord == "")
+          payload.errorRecord = []
+        else {
+          payload.errorRecord = this.$store.state.user.errorRecord
+        }
+
+        this.$store.commit('updateUser', payload)
       }
     },
     tableRowClassName ({ row, rowIndex }) {
