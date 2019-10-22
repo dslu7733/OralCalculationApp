@@ -1,5 +1,6 @@
 <template>
   <div id="question">
+
     <el-page-header @back="goBack"
                     class="header">
     </el-page-header>
@@ -64,6 +65,9 @@ import store from '../../store/index'
 
 Vue.use(VueAxios, Axios)
 
+var dateFormat = require('dateformat')
+var now = new Date()
+
 export default {
   name: 'question',
   data () {
@@ -99,6 +103,16 @@ export default {
       this.$store.state.praStart.start = 1
       this.$data.timer = -1
       this.showAns = true
+
+      //记录历史
+
+      this.$store.state.user.eachPratice = {        ...this.$store.state.user.eachPratice,
+        time: this.$data.spendTime + 's',
+        accuracy: Math.round(this.$data.rightNum / this.$data.proNum * 100) + '%',
+        date: dateFormat(now, "mmmm dS")
+      }
+
+      this.$store.state.user.history.push(this.$store.state.user.eachPratice)
 
       for (var i = 0; i < this.$data.proNum; i++) {
         if (this.$data.questions[i].right == 0) {

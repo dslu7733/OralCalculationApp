@@ -31,7 +31,8 @@
                   style="text-align: left">
             <el-button type="warning"
                        round
-                       plain>练习历史</el-button>
+                       plain
+                       @click="showHistory">练习历史</el-button>
           </el-col>
         </el-row>
 
@@ -64,11 +65,14 @@ export default {
   methods: {
     showError () {
       this.$router.push({ path: '/errorRecord' })
+    },
+    showHistory () {
+      this.$router.push({ path: '/history' })
     }
   },
   beforeRouteLeave: (to, from, next) => {
     //console.log(to.path)
-    if (to.path === '/errorRecord') {
+    if (to.path === '/errorRecord' || to.path === '/history') {
       store.commit('Close')
     }
     next()

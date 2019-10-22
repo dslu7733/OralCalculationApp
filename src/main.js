@@ -4,7 +4,7 @@ import router from './router'
 import store from './store/index'
 import Vuex from 'vuex'
 import ElementUI from '@/plugin/elementUI.js'
-
+//import DateFormat from '@/plugin/date.format.js'
 
 Vue.use(Vuex)
 

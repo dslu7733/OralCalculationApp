@@ -11,7 +11,9 @@ const user = {
     name: '',
     grade: [],
     errorRecord: [],
-    num: 0 //错题数目
+    num: 0, //错题数目
+    history: [], //time, date, accuracy, problem,grade
+    eachPratice: {}
   },
   mutations: {
     updateUser(state, payload) {

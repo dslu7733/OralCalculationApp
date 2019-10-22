@@ -62,7 +62,7 @@ router.post('/user/edit', function (req, res) {
 
             var j = oldErrRed.length
             for (var i = 0; i < req.body.errorRecord.length; i++) {
-              req.body.errorRecord[j].index = j
+              req.body.errorRecord[i].index = j
               j++
             }
             res.end(JSON.stringify(oldErrRed.concat(req.body.errorRecord)))

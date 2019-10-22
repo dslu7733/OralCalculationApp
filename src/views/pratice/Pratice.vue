@@ -71,6 +71,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import NavBar from 'components/common/navbar/NavBar'
 import PraticeSwiper from 'views/pratice/childComps/praticeSwiper'
 import SelectGrade from 'components/content/selectGrade'
@@ -125,6 +126,11 @@ export default {
           //console.log(this.$store.state.praRange.praRange)
           this.$data.grade = this.$store.state.praRange.grade
           this.$data.praRange = this.$store.state.praRange.praRange
+
+          //记录练习
+          store.state.user.eachPratice = {            ...store.state.user.eachPratice,
+            grade: this.$data.grade          }
+
           this.$router.push({ path: '/praSelect', query: { parRange: this.$data.praRange } })
         }
       }, 500);
@@ -135,6 +141,8 @@ export default {
       if (this.$store.state.praRange.pratice == '') {
         this.$message('请先选择题目。')
       } else {
+        store.state.user.eachPratice = {          ...store.state.user.eachPratice,
+          problem: this.$store.state.praRange.pratice        }
         this.$router.push({ path: '/question', query: { pracType: this.$store.state.praRange.pratice, proNum: this.$data.problemNum } })
       }
     }
